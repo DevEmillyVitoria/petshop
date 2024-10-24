@@ -1,4 +1,3 @@
--- 504
 
 -- Criando o banco de dados com suporte ao conjunto de caracteres UTF8
 
@@ -27,7 +26,7 @@ endereco TEXT,
 data_registro DATE NOT NULL
 );
 
--- 505
+
 
 -- Criando a tabela de Funcionarios
 CREATE TABLE funcionarios (
@@ -49,7 +48,7 @@ CREATE TABLE servicos (
     duracao_estimada TIME -- Tempo estimo para o serviço
 );
 
--- 506
+
 -- Criando a tabela de vendas
 CREATE TABLE vendas (
 	id_venda INT AUTO_INCREMENT PRIMARY KEY, -- Chave primaria 
@@ -65,7 +64,7 @@ CREATE TABLE agendamentos (
     observacoes TEXT
 );
 
--- 507
+
 
 -- Alterando a tabela Estoque para incluir um índice (index)
 ALTER TABLE estoque
@@ -85,7 +84,7 @@ ADD INDEX idx_nome_servico (nome_servico);
 
 
 
--- 508
+
 -- Alterando a tabela Vendas para adicionar as FKs
 ALTER TABLE vendas
 ADD COLUMN id_cliente INT, -- FK para a tabela Clientes
@@ -107,7 +106,7 @@ ADD CONSTRAINT fk_agendamento_cliente FOREIGN KEY (id_cliente) REFERENCES client
 ADD CONSTRAINT fk_agendamento_servico FOREIGN KEY (id_servico) REFERENCES servicos(id_servico),
 ADD CONSTRAINT fk_agendamento_funcionario FOREIGN KEY (id_funcionario) REFERENCES funcionarios(id_funcionario);
  
--- 514
+
 
 INSERT INTO estoque (nome_produto, quantidade, preco, data_entrada, descricao_produto) VALUES
 ('Ração para Cães',100, 50.00,'2024-01-10','Ração premium para cães adultos'),
@@ -132,7 +131,7 @@ INSERT INTO estoque (nome_produto, quantidade, preco, data_entrada, descricao_pr
 ('Vacina para Gatos',15,75.00,'2024-02-27','Vacina essencial para gatos'),
 ('Adestramneto para Cães',5,300.00,'2024-02-28','Curso de adestramento para cães');
 
--- 515 
+
 
 INSERT INTO clientes (nome_cliente, telefone, email, endereco, data_registro) VALUES
 ('Carlos Silva', '11987654321', 'carlos@gmail.com', 'Rua A, 123', '2024-01-01' ),
@@ -156,7 +155,7 @@ INSERT INTO clientes (nome_cliente, telefone, email, endereco, data_registro) VA
 ('Sofia Costa', '11909876543', 'sofia@gmail.com', 'Rua S, 901', '2024-01-19'),
 ('André Martins', '11998765432', 'andre@gmail.com', 'Rua T, 012', '2024-01-20');
 
--- 516
+
 
 INSERT INTO funcionarios (nome_funcionario, telefone, email, cargo, salario, data_contratacao) VALUES
 ('Lucas Almeida','11900000001','lucas@gmail.com','Atendente',2000.00,'2024-01-01'),
@@ -175,7 +174,7 @@ INSERT INTO funcionarios (nome_funcionario, telefone, email, cargo, salario, dat
 ('Eduardo Silva', '11900000014', 'eduardo@gmail.com', 'Veterinario', 4000.00, '2024-01-14'),
 ('Renata Ferreira', '11900000015', 'renata@gmail.com', 'Recepcionista', 1800.00, '2024-01-15');
 
--- 517
+
 
 INSERT INTO servicos (nome_servico, descricao_servico, preco_servico, duracao_estimada) VALUES
 ('Banho para Cães Pequenos', 'Banho completo para cães de pequeno porte', 50.00, '00:45:00'),
@@ -194,7 +193,7 @@ INSERT INTO vendas (data_venda, total, id_cliente, id_funcionario) VALUES
 
 select * from itens_venda;
 
--- 519
+
 
 -- Criando a tabela Itens_Venda para armazenar os produtos vendidos em cada venda
 CREATE TABLE Itens_venda (
